@@ -63,13 +63,13 @@ class KTANEWorld(World):
         else:
             for module in modules_item_nohl_table: # 9 modules
                 self.multiworld.itempool += [self.create_item(module)]
-        for i in range(8):
+        for i in range(10):
             self.multiworld.itempool += [self.create_item("Time++")]
         for i in range(18):
             self.multiworld.itempool += [self.create_item("Time+")]
         for i in range(5):
             self.multiworld.itempool += [self.create_item("Strike+")]
-        for i in range(74 + (0 if hardlock_modules else 2)):
+        for i in range(72 + (0 if hardlock_modules else 2)):
             self.multiworld.itempool += [self.create_item("Bomb Fragment")]
 
     def generate_basic(self):

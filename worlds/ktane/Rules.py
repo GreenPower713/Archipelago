@@ -194,7 +194,7 @@ def set_rules(multiworld, options, player):
                                                and state.has("Password", player)
                                                and state.has("Complicated Wires", player)
                                                and state.has("Wire Sequence", player)
-                                               and state.has("Time++", player, 6))
+                                               and state.has("Time++", player, 7))
 
     # section completed rules
     add_rule(multiworld.get_location("Section 1 Completed", player),
