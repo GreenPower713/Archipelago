@@ -18,12 +18,12 @@ section1_table = {
 }
 
 section2_table = {
-    "2.1 Double Trouble - 1 Module Solved": 71301005,
-    "2.1 Double Trouble - 2 Modules Solved": 71301006,
-    "2.1 Double Trouble - 3 Modules Solved": 71301007,
-    "2.1 Double Trouble - 4 Modules Solved": 71301008,
-    "2.1 Double Trouble - 5 Modules Solved": 71301009,
-    "2.1 Double Trouble - 6 Modules Solved": 71301010,
+    "2.1 Make it Double - 1 Module Solved": 71301005,
+    "2.1 Make it Double - 2 Modules Solved": 71301006,
+    "2.1 Make it Double - 3 Modules Solved": 71301007,
+    "2.1 Make it Double - 4 Modules Solved": 71301008,
+    "2.1 Make it Double - 5 Modules Solved": 71301009,
+    "2.1 Make it Double - 6 Modules Solved": 71301010,
     "2.2 Oh! The Lights! - 1 Module Solved": 71301011,
     "2.2 Oh! The Lights! - 2 Modules Solved": 71301012,
     "2.2 Oh! The Lights! - 3 Modules Solved": 71301013,

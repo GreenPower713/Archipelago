@@ -201,7 +201,7 @@ def set_rules(multiworld, options, player):
              lambda state: state.can_reach("1.1 The First Challenge - 3 Modules Solved", "Location", player))
 
     add_rule(multiworld.get_location("Section 2 Completed", player),
-             lambda state: state.can_reach("2.1 Double Trouble - 6 Modules Solved", "Location", player)
+             lambda state: state.can_reach("2.1 Make it Double - 6 Modules Solved", "Location", player)
                            and state.can_reach("2.2 Oh! The Lights! - 3 Modules Solved", "Location", player)
                            and state.can_reach("2.3 Remember - 3 Modules Solved", "Location", player)
                            and state.can_reach("2.4 Don't Get Lost - 3 Modules Solved", "Location", player)
