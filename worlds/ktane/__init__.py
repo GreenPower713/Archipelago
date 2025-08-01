@@ -83,7 +83,8 @@ class KTANEWorld(World):
         slot_data: Dict[str, object] = {
             "random_rule_seed": self.options.random_rule_seed.value,
             "rule_seed": self.options.rule_seed.value,
-            "hardlock_modules": self.options.hardlock_modules.value
+            "hardlock_modules": self.options.hardlock_modules.value,
+            "manuals_language": self.options.manuals_language.value
         }
 
         return slot_data
