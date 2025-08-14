@@ -20,8 +20,12 @@ class RuleSeed(Range):
 
 class HardlockModules(Toggle):
     """Bombs that can't be finished will not be accessible. Only when all the modules that can be on a bomb are unlocked
-     that the bomb is unlocked. Would strongly recommend if "Use Random Rule Seed" is disabled."""
+     that the bomb is unlocked. Strongly recommended if "Use Random Rule Seed" is disabled."""
     display_name = "Hardlock Modules"
+
+class OHKOMode(Toggle):
+    """One mistake and it's over. Only activate if you are hardcore."""
+    display_name = "OHKO Mode"
 
 
 class ManualsLanguage(Choice):
@@ -43,6 +47,7 @@ class KTANEOptions(PerGameCommonOptions):
     random_rule_seed: UseRandomRuleSeed
     rule_seed: RuleSeed
     hardlock_modules: HardlockModules
+    ohko_mode: OHKOMode
     manuals_language: ManualsLanguage
 
 

@@ -57,6 +57,7 @@ class KTANEWorld(World):
 
     def create_items(self):
         hardlock_modules = self.options.hardlock_modules.value
+        ohko_mode = self.options.ohko_mode.value
         if hardlock_modules:
             for module in modules_item_table:  # 11 modules
                 self.multiworld.itempool += [self.create_item(module)]
@@ -67,9 +68,10 @@ class KTANEWorld(World):
             self.multiworld.itempool += [self.create_item("Time++")]
         for i in range(18):
             self.multiworld.itempool += [self.create_item("Time+")]
-        for i in range(5):
-            self.multiworld.itempool += [self.create_item("Strike+")]
-        for i in range(72 + (0 if hardlock_modules else 2)):
+        if not ohko_mode:
+            for i in range(5):
+                self.multiworld.itempool += [self.create_item("Strike+")]
+        for i in range(72 + (0 if hardlock_modules else 2) + (5 if ohko_mode else 0)):
             self.multiworld.itempool += [self.create_item("Bomb Fragment")]
 
     def generate_basic(self):
@@ -84,6 +86,7 @@ class KTANEWorld(World):
             "random_rule_seed": self.options.random_rule_seed.value,
             "rule_seed": self.options.rule_seed.value,
             "hardlock_modules": self.options.hardlock_modules.value,
+            "ohko_mode": self.options.ohko_mode.value,
             "manuals_language": self.options.manuals_language.value
         }
 
