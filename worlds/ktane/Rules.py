@@ -255,18 +255,16 @@ def set_rules(multiworld, options, player):
                  lambda state: getModuleCounts(state, player, [["Maze"]]) >= 1)
         add_rule(multiworld.get_location("2.5 Confusion - 3 Modules Solved", player),
                  lambda state: getModuleCounts(state, player, [["Who's on First"]]) >= 1)
-        add_rule(multiworld.get_location("2.6 Speedster I - 1 Module Solved", player),
-                 lambda state: getModuleCounts(state, player, [
-                     ["Simon Says", "Memory", "Maze", "Who's on First"]
-                 ]) >= 1)
         add_rule(multiworld.get_location("2.6 Speedster I - 2 Modules Solved", player),
                  lambda state: getModuleCounts(state, player, [
-                     ["Simon Says", "Memory", "Maze", "Who's on First"]
+                     ["Simon Says", "Maze", "Who's on First"],
+                     ["Memory"]
                  ]) >= 1)
         add_rule(multiworld.get_location("2.6 Speedster I - 3 Modules Solved", player),
                  lambda state: getModuleCounts(state, player, [
-                     ["Simon Says", "Memory", "Maze", "Who's on First"]
-                 ]) >= 1 and state.has("Time++", player, 1))
+                     ["Simon Says", "Maze", "Who's on First"],
+                     ["Memory"]
+                 ]) >= 2 and state.has("Time++", player, 1))
 
         # Section 3
         add_rule(multiworld.get_location("3.1 Back in the 40s - 3 Modules Solved", player),
