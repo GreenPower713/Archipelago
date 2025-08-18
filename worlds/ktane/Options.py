@@ -28,18 +28,18 @@ class OHKOMode(Toggle):
     display_name = "OHKO Mode"
 
 
-class ManualsLanguage(Choice):
-    """Language code that the manuals pages should be. Should be the same language of the game. Available options are:
-    en, cs, es, fr, ja, nl, pl, ru"""
-    display_name = "Manuals Language"
-    option_en = 0
-    option_cs = 1
-    option_es = 2
-    option_fr = 3
-    option_ja = 4
-    option_nl = 5
-    option_pl = 6
-    option_ru = 7
+#class ManualsLanguage(Choice):
+#    """Language code that the manuals pages should be. Should be the same language of the game. Available options are:
+#    en, cs, es, fr, ja, nl, pl, ru"""
+#    display_name = "Manuals Language"
+#    option_en = 0
+#    option_cs = 1
+#    option_es = 2
+#    option_fr = 3
+#    option_ja = 4
+#    option_nl = 5
+#    option_pl = 6
+#    option_ru = 7
 
 
 @dataclass
@@ -48,7 +48,7 @@ class KTANEOptions(PerGameCommonOptions):
     rule_seed: RuleSeed
     hardlock_modules: HardlockModules
     ohko_mode: OHKOMode
-    manuals_language: ManualsLanguage
+    #manuals_language: ManualsLanguage
 
 
 def get_option_value(world: MultiWorld, player: int, name: str) -> Union[int, Dict, List]:
