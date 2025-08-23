@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from Options import Option, Range, DefaultOnToggle, Toggle, Choice, PerGameCommonOptions
+from Options import Option, Range, DefaultOnToggle, Toggle, Choice, PerGameCommonOptions, DeathLink
 from BaseClasses import MultiWorld
 from typing import Dict, Union, List
 
@@ -41,6 +41,12 @@ class OHKOMode(Toggle):
 #    option_pl = 6
 #    option_ru = 7
 
+class DeathLinkBehaviour(Choice):
+    """Manages how Death Links are sent and received."""
+    display_name = "Death Link Behaviour"
+    option_explosion = 0
+    option_strike = 1
+
 
 @dataclass
 class KTANEOptions(PerGameCommonOptions):
@@ -49,6 +55,8 @@ class KTANEOptions(PerGameCommonOptions):
     hardlock_modules: HardlockModules
     ohko_mode: OHKOMode
     #manuals_language: ManualsLanguage
+    death_link: DeathLink
+    death_link_behaviour: DeathLinkBehaviour
 
 
 def get_option_value(world: MultiWorld, player: int, name: str) -> Union[int, Dict, List]:

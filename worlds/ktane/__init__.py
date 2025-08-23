@@ -86,8 +86,10 @@ class KTANEWorld(World):
             "random_rule_seed": self.options.random_rule_seed.value,
             "rule_seed": self.options.rule_seed.value,
             "hardlock_modules": self.options.hardlock_modules.value,
-            "ohko_mode": self.options.ohko_mode.value
+            "ohko_mode": self.options.ohko_mode.value,
             #"manuals_language": self.options.manuals_language.value
+            "death_link": self.options.death_link.value,
+            "death_link_behaviour": self.options.death_link_behaviour.value
         }
 
         return slot_data
