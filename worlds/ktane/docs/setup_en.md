@@ -7,7 +7,7 @@ This game currently doesn't work with Linux. Only Windows and MacOS are fully su
 ## Required Software
 
  - Keep Talking and Nobody Explodes from [Steam](https://store.steampowered.com/app/341800/Keep_Talking_and_Nobody_Explodes/)
- - Expert Manuals Clients from [GitHub](https://github.com/GreenPower713/KTaNE-Archipelago-Expert-Manuals/releases)
+ - Expert Manuals Client from [GitHub](https://github.com/GreenPower713/KTaNE-Archipelago-Expert-Manuals/releases)
 
 ## Required Mods
 
@@ -15,7 +15,7 @@ Please note that to download mods, you may need to complete the mission "1.3 - T
  - [Mod Selector](https://steamcommunity.com/sharedfiles/filedetails/?id=801400247) by Bashly
  - [Archipelago](https://steamcommunity.com/sharedfiles/filedetails/?id=3247225189) by GreenPower713
 
-If you want to modify the puzzle solutions, you will need the following mod:
+By default, the following mod is also required. It can be ignored if random puzzle solutions are disabled.
  - [Rule Seed Modifier](https://steamcommunity.com/sharedfiles/filedetails/?id=2037350348) by samfundev
 
 ## Recommended Mods
@@ -82,7 +82,8 @@ Please remember the 2 following things:
 
 ## Joining a MultiWorld Game
 
-Since this game is based for a defuser and an expert, they have two different ways of joining a game.
+Since this game is designed for a defuser and an expert, the two players have different ways of joining a multiworld.<br>
+An EFM (Expert For Myself) player will need to use both methods.
 
 ### Defuser
 1. Open the Game. It will show a "Mods and External Content Warning". Select "Enable Mods".
