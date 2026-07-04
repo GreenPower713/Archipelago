@@ -17,6 +17,14 @@ class RuleSeed(Range):
     range_end = 10000
     default = 1
 
+class AdventureMode(Choice):
+    """Choose which adventure/playthrough to use.
+    Vanilla Vanguard = Only vanilla modules that are already in the game
+    Praetorian Pact = Includes modules that are ruleseedable in the first 150 modules released."""
+    display_name = "Adventure Mode"
+    option_vanilla_vanguard = 0
+    option_praetorian_pact = 1
+
 
 class HardlockModules(Toggle):
     """Bombs that can't be finished will not be accessible. Only when all the modules that can be on a bomb are unlocked
@@ -52,6 +60,7 @@ class DeathLinkBehaviour(Choice):
 class KTANEOptions(PerGameCommonOptions):
     random_rule_seed: UseRandomRuleSeed
     rule_seed: RuleSeed
+    adventure_mode: AdventureMode
     hardlock_modules: HardlockModules
     ohko_mode: OHKOMode
     #manuals_language: ManualsLanguage

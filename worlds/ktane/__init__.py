@@ -1,13 +1,12 @@
 import os, json
-from typing import Dict
-from .Items import item_table, KTANEItem, modules_item_table, modules_item_nohl_table, other_progression_items, useful_items
-from .Locations import location_table, KTANELocation
+from typing import Dict, TextIO
+from .Items import all_items_table, KTANEItem, modules_item_vanilla_nohl_table, modules_item_vanilla_hl_table, modded_modules_table, all_modules_table, progression_skip_balancing_items, useful_items
+from .Locations import all_locations_table, KTANELocation
 from .Options import KTANEOptions, get_option_value
-from .Rules import set_rules
-from .Regions import create_regions
+from .Rules import set_rules_vanilla, set_rules_modded
+from .Regions import create_regions_vanilla, create_regions_modded
 from BaseClasses import Item, ItemClassification, Tutorial
 from ..AutoWorld import World, WebWorld
-from random import randint
 
 client_version = 1
 
@@ -32,59 +31,78 @@ class KTANEWorld(World):
     topology_present = False
     web = KTANEWeb()
 
-    item_name_to_id = item_table
-    location_name_to_id = location_table
+    item_name_to_id = all_items_table
+    location_name_to_id = all_locations_table
 
     data_version = 1
 
     options_dataclass = KTANEOptions
 
     def create_regions(self):
-        create_regions(self.multiworld, self.player)
+        adventure_mode = self.options.adventure_mode.value
+        if adventure_mode == 0: #Vanilla Vanguard
+            create_regions_vanilla(self.multiworld, self.player)
+        else:
+            create_regions_modded(self.multiworld, self.player)
 
     def set_rules(self):
-        set_rules(self.multiworld, self.options, self.player)
+        adventure_mode = self.options.adventure_mode.value
+        if adventure_mode == 0: #Vanilla Vanguard
+            set_rules_vanilla(self.multiworld, self.options, self.player)
+        else:
+            set_rules_modded(self.multiworld, self.options, self.player, self._finalChallengeComposition)
 
     def create_item(self, name: str) -> Item:
         classification = ItemClassification.filler
-        if name in modules_item_table.keys():
+        if name in all_modules_table:
             classification = ItemClassification.progression
-        elif name in other_progression_items.keys():
+        elif name in progression_skip_balancing_items:
             classification = ItemClassification.progression_skip_balancing
-        elif name in useful_items.keys():
+        elif name in useful_items:
             classification = ItemClassification.useful
-        return KTANEItem(name, classification, item_table[name], self.player)
+        return KTANEItem(name, classification, all_items_table[name], self.player)
 
     def create_items(self):
         hardlock_modules = self.options.hardlock_modules.value
         ohko_mode = self.options.ohko_mode.value
-        if hardlock_modules:
-            for module in modules_item_table:  # 11 modules
-                self.multiworld.itempool += [self.create_item(module)]
-        else:
-            for module in modules_item_nohl_table: # 9 modules
-                self.multiworld.itempool += [self.create_item(module)]
-        for i in range(10):
-            self.multiworld.itempool += [self.create_item("Time++")]
-        for i in range(18):
-            self.multiworld.itempool += [self.create_item("Time+")]
-        if not ohko_mode:
-            for i in range(5):
-                self.multiworld.itempool += [self.create_item("Strike+")]
-        for i in range(72 + (0 if hardlock_modules else 2) + (5 if ohko_mode else 0)):
-            self.multiworld.itempool += [self.create_item("Bomb Fragment")]
+        adventure_mode = self.options.adventure_mode.value
+        if adventure_mode == 0: #Vanilla Vanguard
+            if hardlock_modules:
+                self.multiworld.itempool += [self.create_item(module) for module in modules_item_vanilla_hl_table] # 11 modules
+            else:
+                self.multiworld.itempool += [self.create_item(module) for module in modules_item_vanilla_nohl_table] # 9 modules
+            self.multiworld.itempool += [self.create_item("Time++") for _ in range(10)]
+            self.multiworld.itempool += [self.create_item("Time+") for _ in range(18)]
+            if not ohko_mode:
+                self.multiworld.itempool += [self.create_item("Strike+") for _ in range(5)]
+            self.multiworld.itempool += [self.create_item("Bomb Fragment") for _ in range(72 + (0 if hardlock_modules else 2) + (5 if ohko_mode else 0))]
+        else: #Praetorian Pact
+            self.multiworld.itempool += [self.create_item(module) for module in modded_modules_table] # 28 modules
+            self.multiworld.itempool += [self.create_item("Time++") for _ in range(15)]
+            self.multiworld.itempool += [self.create_item("Time+") for _ in range(40)]
+            if not ohko_mode:
+                self.multiworld.itempool += [self.create_item("Strike+") for _ in range(15)]
+            self.multiworld.itempool += [self.create_item("Bomb Fragment") for _ in range(200)]
+            self.multiworld.itempool += [self.create_item("Empty Manual Page") for _ in range(273 + (15 if ohko_mode else 0))]
 
-    def generate_basic(self):
-        pass
+    def write_spoiler_header(self, spoiler_handle: TextIO) -> None:
+        if self.options.adventure_mode.value == 1:
+            spoiler_handle.write("Final Challenge Composition:     [" + ", ".join(self._finalChallengeComposition) + "]")
 
     def generate_early(self):
         if self.options.random_rule_seed.value:
-            self.options.rule_seed.value = randint(2, 10000)
-
+            self.options.rule_seed.value = self.multiworld.random.randint(2, 10000)
+        if self.options.adventure_mode.value == 1: #Praetorian Pact
+            self._finalChallengeComposition = self.multiworld.random.sample(list(modded_modules_table.keys()), 15)
+        else:
+            self._finalChallengeComposition = []
+    
     def fill_slot_data(self):
         slot_data: Dict[str, object] = {
             "random_rule_seed": self.options.random_rule_seed.value,
             "rule_seed": self.options.rule_seed.value,
+            "adventure_mode": self.options.adventure_mode.value,
+            "final_challenge_composition": self._finalChallengeComposition,
             "hardlock_modules": self.options.hardlock_modules.value,
             "ohko_mode": self.options.ohko_mode.value,
             #"manuals_language": self.options.manuals_language.value
