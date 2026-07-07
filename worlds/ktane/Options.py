@@ -20,7 +20,7 @@ class RuleSeed(Range):
 class AdventureMode(Choice):
     """Choose which adventure/playthrough to use.
     Vanilla Vanguard = Only vanilla modules that are already in the game
-    Praetorian Pact = Includes modules that are ruleseedable in the first 150 modules released."""
+    Praetorian Pact = Includes modules that are ruleseedable in the first 150 modded modules released."""
     display_name = "Adventure Mode"
     option_vanilla_vanguard = 0
     option_praetorian_pact = 1
