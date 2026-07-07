@@ -112,15 +112,14 @@ class AggressiveScanLogic(Choice):
 
 
 class SubnauticaDeathLink(DeathLink):
-    """When you die, everyone dies. Of course the reverse is true too.
-    Note: can be toggled via in-game console command "deathlink"."""
+    __doc__ = DeathLink.__doc__ + "\n\n    Note: can be toggled via in-game console command \"deathlink\"."
 
 
 class FillerItemsDistribution(ItemDict):
     """Random chance weights of various filler resources that can be obtained.
     Available items: """
     __doc__ += ", ".join(f"\"{item_name}\"" for item_name in item_names_by_type[ItemType.resource])
-    _valid_keys = frozenset(item_names_by_type[ItemType.resource])
+    valid_keys = sorted(item_names_by_type[ItemType.resource])
     default = {item_name: 1 for item_name in item_names_by_type[ItemType.resource]}
     display_name = "Filler Items Distribution"
 
@@ -128,6 +127,10 @@ class FillerItemsDistribution(ItemDict):
     def weights_pair(self) -> typing.Tuple[typing.List[str], typing.List[int]]:
         from itertools import accumulate
         return list(self.value.keys()), list(accumulate(self.value.values()))
+
+
+class EmptyTanks(DefaultOnToggle):
+    """Oxygen Tanks stored in inventory are empty if enabled."""
 
 
 @dataclass
@@ -141,3 +144,4 @@ class SubnauticaOptions(PerGameCommonOptions):
     death_link: SubnauticaDeathLink
     start_inventory_from_pool: StartInventoryPool
     filler_items_distribution: FillerItemsDistribution
+    empty_tanks: EmptyTanks

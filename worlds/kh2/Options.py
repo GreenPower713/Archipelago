@@ -273,7 +273,7 @@ class BountyRequired(Range):
     If Goal is not Hitlist or Lucky Emblem and Hitlist this does nothing."""
     display_name = "Bounties Required"
     range_start = 1
-    range_end = 26
+    range_end = 42
     default = 7
 
 
@@ -283,13 +283,19 @@ class BountyAmount(Range):
     If Goal is not Hitlist or Lucky Emblem and Hitlist this does nothing."""
     display_name = "Bounties Available"
     range_start = 1
-    range_end = 26
+    range_end = 42
     default = 10
 
 
 class BountyStartHint(Toggle):
     """Start with Bounties Hinted"""
     display_name = "Start with Bounties Hinted"
+    default = False
+
+
+class CasualBounties(Toggle):
+    """Adds more casual and generic locations that aren't superbosses to expand the bounty pool. (World Bosses, etc.)"""
+    display_name = "Add Casual Bounties"
     default = False
 
 
@@ -308,14 +314,14 @@ class CorSkipToggle(Toggle):
 
     Full Cor Skip is also affected by this Toggle.
     """
-    display_name = "CoR Skip Toggle."
+    display_name = "CoR Skip Toggle"
     default = False
 
 
 class CustomItemPoolQuantity(ItemDict):
     """Add more of an item into the itempool. Note: You cannot take out items from the pool."""
     display_name = "Custom Item Pool"
-    verify_item_name = True
+    valid_keys = default_itempool_option.keys()
     default = default_itempool_option
 
 
@@ -365,6 +371,7 @@ class KingdomHearts2Options(PerGameCommonOptions):
     Visitlocking: Visitlocking
     RandomVisitLockingItem: RandomVisitLockingItem
     SuperBosses: SuperBosses
+    CasualBounties: CasualBounties
     Cups: Cups
     SummonLevelLocationToggle: SummonLevelLocationToggle
     AtlanticaToggle: AtlanticaToggle
