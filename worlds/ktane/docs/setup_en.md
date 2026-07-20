@@ -48,6 +48,7 @@ If you want to play Modded Modules, here are the ones that are needed. ***You wi
  - [Radiator](https://steamcommunity.com/sharedfiles/filedetails/?id=1291601109) by red031000
  - [Rock-Paper-Scissors-Lizard-Spock](https://steamcommunity.com/sharedfiles/filedetails/?id=798194678) by Timwi
  - [Simon Screams](https://steamcommunity.com/sharedfiles/filedetails/?id=822349841) by Timwi
+ - [Switches Module](https://steamcommunity.com/sharedfiles/filedetails/?id=731307620) by Brian Fetter
  - [The Bulb](https://steamcommunity.com/sharedfiles/filedetails/?id=788980366) by Timwi
  - [Tic Tac Toe](https://steamcommunity.com/sharedfiles/filedetails/?id=776667407) by Timwi
  - [Wire Placement](https://steamcommunity.com/sharedfiles/filedetails/?id=836617860) by Timwi
