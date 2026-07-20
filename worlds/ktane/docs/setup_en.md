@@ -23,6 +23,37 @@ By default, the following mod is also required. It can be ignored if random puzz
  - [Camera Zoom](https://steamcommunity.com/sharedfiles/filedetails/?id=838110334) by Hex
  - [Tweaks](https://steamcommunity.com/sharedfiles/filedetails/?id=1366808675) by samfundev
 
+## Praetorian Pact
+
+If you want to play Modded Modules, here are the ones that are needed. ***You will also need [Tweaks](https://steamcommunity.com/sharedfiles/filedetails/?id=1366808675) from the recommended mods***
+ - [3D Maze](https://steamcommunity.com/sharedfiles/filedetails/?id=2164996443) by Timwi
+ - [Backgrounds](https://steamcommunity.com/sharedfiles/filedetails/?id=1286383144) by Riverbui
+ - [Big Circle](https://steamcommunity.com/sharedfiles/filedetails/?id=1110997971) by caitsith2
+ - [Bitmaps](https://steamcommunity.com/sharedfiles/filedetails/?id=805042374) by Timwi
+ - [Blind Alley](https://steamcommunity.com/sharedfiles/filedetails/?id=793073877) by Timwi
+ - [Blind Maze](https://steamcommunity.com/sharedfiles/filedetails/?id=1286297509) by Riverbui
+ - [Cheap Checkout](https://steamcommunity.com/sharedfiles/filedetails/?id=844093428) by samfundev
+ - [Chess](https://steamcommunity.com/sharedfiles/filedetails/?id=751202722) by Flamanis
+ - [Colored Squares and its brethren](https://steamcommunity.com/sharedfiles/filedetails/?id=805590147) by Timwi
+ - [Color Morse](https://steamcommunity.com/sharedfiles/filedetails/?id=1649012246) by Timwi
+ - [Double-Oh](https://steamcommunity.com/sharedfiles/filedetails/?id=843564671) by Timwi
+ - [Fast Math](https://steamcommunity.com/sharedfiles/filedetails/?id=932617090) by SL7205
+ - [FizzBuzz](https://steamcommunity.com/sharedfiles/filedetails/?id=1659583568) by Timwi
+ - [Follow the Leader](https://steamcommunity.com/sharedfiles/filedetails/?id=783004078) by Timwi
+ - [Friendship](https://steamcommunity.com/sharedfiles/filedetails/?id=786826903) by Timwi
+ - [Hexamaze](https://steamcommunity.com/sharedfiles/filedetails/?id=803924558) by Timwi
+ - [Morse-A-Maze](https://steamcommunity.com/sharedfiles/filedetails/?id=1117239398) by caitsith2
+ - [Mouse In The Maze](https://steamcommunity.com/sharedfiles/filedetails/?id=803537557) by Timwi
+ - [Polyhedral Maze](https://steamcommunity.com/sharedfiles/filedetails/?id=1253515570) by Timwi
+ - [Radiator](https://steamcommunity.com/sharedfiles/filedetails/?id=1291601109) by red031000
+ - [Rock-Paper-Scissors-Lizard-Spock](https://steamcommunity.com/sharedfiles/filedetails/?id=798194678) by Timwi
+ - [Simon Screams](https://steamcommunity.com/sharedfiles/filedetails/?id=822349841) by Timwi
+ - [The Bulb](https://steamcommunity.com/sharedfiles/filedetails/?id=788980366) by Timwi
+ - [Tic Tac Toe](https://steamcommunity.com/sharedfiles/filedetails/?id=776667407) by Timwi
+ - [Wire Placement](https://steamcommunity.com/sharedfiles/filedetails/?id=836617860) by Timwi
+ - [X-Ray](https://steamcommunity.com/sharedfiles/filedetails/?id=985466399) by Timwi
+ - [Zoo](https://steamcommunity.com/sharedfiles/filedetails/?id=946256499) by Timwi
+
 ## Configuring a YAML File
 
 ### What is a YAML and why do I need one?
