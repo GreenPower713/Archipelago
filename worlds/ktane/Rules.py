@@ -1465,7 +1465,7 @@ def set_rules_modded(multiworld, options, player, finalChallengeComposition):
                         ["Follow the Leader"]
                     ]) >= i)
         vanillaModules = 3
-        for i in range(1, 5):
+        for i in range(1, 7):
             if i >= 5:
                 add_rule(multiworld.get_location("5.2 Insanity - " + str(i+vanillaModules) + " Modules Solved", player),
                     lambda state, i=i: getModuleCounts(state, player, [
