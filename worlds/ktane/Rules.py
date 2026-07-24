@@ -1475,7 +1475,7 @@ def set_rules_modded(multiworld, options, player, finalChallengeComposition):
                         ["Colored Squares"],
                         ["Tic Tac Toe"],
                         ["Simon Screams"]
-                    ]) >= i and state.has("Time++"), player, 1)
+                    ]) >= i and state.has("Time++", player, 1))
             else:
                 add_rule(multiworld.get_location("5.2 Insanity - " + str(i+vanillaModules) + " Modules Solved", player),
                     lambda state, i=i: getModuleCounts(state, player, [
